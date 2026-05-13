@@ -539,14 +539,174 @@ option {
 }
 
 @media (max-width: 640px) {
+  #home {
+    min-height: auto;
+    padding-bottom: 4rem;
+    padding-top: 5.75rem;
+  }
+
+  #home h1 {
+    font-size: 2.45rem;
+    line-height: 1.08;
+  }
+
+  #home p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition-delay: 0ms;
+  }
+
+  .stat-card,
+  .mini-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .pipeline-fill {
+    width: var(--target-width);
+  }
+
   .section-spacing {
-    padding-block: 4.5rem;
+    padding-block: 3.75rem;
+  }
+
+  .site-shell::after {
+    background-size: 48px 48px;
+  }
+
+  .mobile-nav-link {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .hero-visual {
+    animation: none;
+    border-radius: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-visual .grid {
+    gap: 0.75rem;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.875rem;
+  }
+
+  .visual-topbar {
+    padding: 0.75rem 0.875rem;
+  }
+
+  .ecosystem-node {
+    animation: mobileCardFloat 4.8s ease-in-out infinite;
+    min-height: 8.75rem;
+    padding: 0.875rem;
+  }
+
+  .ecosystem-node .h-11 {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+
+  .ecosystem-node h3 {
+    font-size: 0.95rem;
+  }
+
+  .ecosystem-node p {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .hero-visual .mx-5 {
+    margin-left: 0.875rem;
+    margin-right: 0.875rem;
+  }
+
+  .hero-visual .mb-5 {
+    margin-bottom: 0.875rem;
+  }
+
+  .hero-visual .p-5 {
+    padding: 0.875rem;
+  }
+
+  .hero-visual .w-28 {
+    width: 5.75rem;
+  }
+
+  .stat-card {
+    min-height: 5.4rem;
   }
 
   .primary-button,
   .secondary-button {
     justify-content: center;
     width: 100%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    line-height: 1.08;
+  }
+
+  .section-copy {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .project-card {
+    padding: 1.125rem;
+  }
+
+  .project-card-featured {
+    padding: 1.25rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.45rem;
+  }
+
+  .manual-link {
+    font-size: 0.78rem;
+  }
+
+  .service-card,
+  .tech-card,
+  .audience-card {
+    min-height: 3.9rem;
+    padding: 0.875rem;
+  }
+
+  .contact-panel {
+    border-radius: 0.875rem;
+    gap: 1.75rem;
+    padding: 1rem;
+  }
+
+  .contact-highlights {
+    display: none;
+  }
+
+  .form-input {
+    font-size: 1rem;
+  }
+
+  footer {
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+  }
+}
+
+@keyframes mobileCardFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
   }
 }
 

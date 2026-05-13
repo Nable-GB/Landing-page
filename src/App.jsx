@@ -512,7 +512,7 @@ function App() {
                 <p className="mt-6 text-lg leading-8 text-slate-300">
                   Even if your idea is not fully organized yet, that is okay. Share your current situation, and we will help define the project structure, development scope, budget, timeline, and launch strategy.
                 </p>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+                <div className="contact-highlights mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   {["Architecture review", "Token logic", "MVP scope", "Investor demo"].map((item, index) => (
                     <div key={item} className="mini-card rounded-lg border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-slate-300" style={{ "--delay": `${index * 100}ms` }}>
                       {item}
