@@ -24,6 +24,11 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import nftMallImage from "./assets/projects/nft-mall.png";
+import paymentImage from "./assets/projects/payment.png";
+import rwaWalletImage from "./assets/projects/rwa-wallet.png";
+import smartOtcSwapPlatformImage from "./assets/projects/smartotc-swap-platform.png";
+import smfiMusicFiImage from "./assets/projects/smfi-musicfi.png";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -60,42 +65,66 @@ const projects = [
     useCases: ["Governments", "Enterprises", "Stablecoins", "Digital asset services"],
   },
   {
-    name: "RealSun RWA Platform",
-    tag: "RWA Platform",
+    name: "NFT Mall",
+    tag: "RWA / NFT Mall",
     featured: true,
     icon: Sparkles,
+    url: "https://realsun.info",
+    image: nftMallImage,
     description:
-      "An RWA platform connecting solar power plants with digital assets through solar-based NFTs, point participation, and reward models linked to real-world power generation revenue.",
-    useCases: ["Solar NFTs", "Point rewards", "Revenue models", "Asset participation"],
+      "A RealSun RWA showcase and NFT mall that presents real solar power plant data, operational performance, solar asset photos, and NFT-based participation in the energy ecosystem.",
+    analysis:
+      "The product turns solar infrastructure into a digital investment experience: visitors can review plant status, inspect generation data, learn the asset story, and move toward NFT purchase or RWA participation.",
+    useCases: ["Solar plant showcase", "RWA investor journey", "NFT purchase flow", "Operational transparency"],
     links: manualLinks,
   },
   {
-    name: "Tetherbank Wallet",
-    tag: "Wallet",
+    name: "RWA Wallet",
+    tag: "RWA Wallet",
     icon: WalletCards,
+    url: "https://wallet.realsun.info",
+    image: rwaWalletImage,
     description:
-      "A Web3 wallet service supporting MetaMask and Trust Wallet connection, P2P transfers, point management, NFT platform integration, and ETH/USDT charging structures.",
+      "A RealSun wallet for RSP balance management, QR send/receive, token purchase, P2P movement, DEX access, withdrawals, and transaction history.",
+    analysis:
+      "The wallet is the user account layer for the RWA ecosystem. It gives users a clear balance view, separates locked and available balances, and exposes the main actions needed to buy, transfer, trade, or withdraw RSP.",
+    useCases: ["RSP balance ledger", "QR transfer", "P2P wallet flow", "DEX and withdrawal"],
   },
   {
-    name: "BuyZone",
-    tag: "Marketplace",
+    name: "SmartOTC Swap Platform",
+    tag: "SmartOTC",
     icon: CircleDollarSign,
+    url: "https://buyzone.io",
+    image: smartOtcSwapPlatformImage,
     description:
-      "A P2P token marketplace where users can list and sell their own ERC-20 tokens with USD-based prices, referral rewards, and custom trading conditions.",
+      "A SmartOTC marketplace for listing, browsing, and buying ERC-20 tokens through direct P2P swap-style flows across supported EVM chains.",
+    analysis:
+      "BuyZone focuses on over-the-counter token distribution: sellers can list token supply, set token pricing, expose affiliate rewards, and let buyers browse live listings without a traditional exchange order book.",
+    useCases: ["P2P token listings", "Seller pricing", "Affiliate rewards", "Wallet-based settlement"],
   },
   {
-    name: "Hubmembership",
-    tag: "Payment",
+    name: "Payment",
+    tag: "HUBpay",
     icon: Globe2,
+    url: "https://hubmembership.info",
+    image: paymentImage,
     description:
-      "Utility-based payment with crypto for global vendors, featuring P2P movement, swap functionality, and vendor-ready settlement flows.",
+      "A HUBpay membership wallet for Hpoint balances, charging, token/payment transition, money transfer, gifts, shopping mall access, merchants, coupons, and referral status.",
+    analysis:
+      "The product packages payment utility into a member dashboard. It combines point balance, crypto/token balances, charging, transfers, merchant access, and user benefits into one practical payment ecosystem.",
+    useCases: ["Hpoint payment wallet", "Charging and transfer", "Merchant utility", "Membership rewards"],
   },
   {
-    name: "SocialMusicFi",
+    name: "SMFI : MusicFi",
     tag: "MusicFi",
     icon: Gem,
+    url: "https://smfi.io",
+    image: smfiMusicFiImage,
     description:
-      "A MusicFi platform where artists upload music and receive rewards based on NFTs, tokens, fan voting, and streaming data.",
+      "A SocialMusicFi platform where users stream music, discover trending tracks, upload content, collect music NFTs, and participate in battle-style engagement.",
+    analysis:
+      "SMFI connects creator content with Web3 reward mechanics. The interface emphasizes discovery, new releases, most-loved tracks, uploads, NFT ownership, and gamified fan participation.",
+    useCases: ["Music streaming", "Creator upload", "Music NFTs", "Fan battle and rewards"],
   },
   {
     name: "I Love Korea",
@@ -160,7 +189,7 @@ const insights = [
   "Investor demos should explain the economy before asking users to trust the technology.",
 ];
 
-const CONTACT_EMAIL = "hello@example.com";
+const CONTACT_EMAIL = "Anantasuk000@gmail.com";
 
 function useScrollReveal() {
   useEffect(() => {
@@ -394,10 +423,10 @@ function App() {
         <section id="projects" className="section-spacing">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="section-heading" data-reveal>
-              <SectionEyebrow icon={Layers3}>Portfolio systems</SectionEyebrow>
-              <h2 className="section-title">Featured Projects</h2>
+              <SectionEyebrow icon={Layers3}>Product showcase</SectionEyebrow>
+              <h2 className="section-title">Live Product Showcase</h2>
               <p className="section-copy">
-                From proprietary chains to user-facing marketplaces, each build connects business design with practical blockchain infrastructure.
+                Screenshots and product analysis from real platforms: RWA wallet, NFT mall, MusicFi, SmartOTC marketplace, and payment membership ecosystem.
               </p>
             </div>
 
@@ -604,8 +633,29 @@ function ProjectCard({ project, featured = false, delay = 0 }) {
           {project.tag}
         </span>
       </div>
+
+      {project.image && (
+        <a href={project.url} target="_blank" rel="noreferrer" className="project-shot-link" aria-label={`Open ${project.name}`}>
+          <img className="project-shot" src={project.image} alt={`${project.name} screenshot`} loading="lazy" />
+        </a>
+      )}
+
       <h3 className="font-display text-2xl font-semibold tracking-normal text-white">{project.name}</h3>
       <p className="mt-4 leading-7 text-slate-300">{project.description}</p>
+
+      {project.analysis && (
+        <div className="project-analysis">
+          <p className="project-analysis-label">What it does</p>
+          <p>{project.analysis}</p>
+        </div>
+      )}
+
+      {project.url && (
+        <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+          Visit Project
+          <ExternalLink size={14} />
+        </a>
+      )}
 
       {project.useCases && (
         <div className="mt-6 flex flex-wrap gap-2">

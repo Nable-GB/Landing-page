@@ -297,6 +297,63 @@ header {
   padding: clamp(1.5rem, 3vw, 2rem);
 }
 
+.project-shot-link {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.8rem;
+  display: block;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-shot-link::after {
+  background: linear-gradient(180deg, rgba(8, 12, 22, 0) 0%, rgba(8, 12, 22, 0.28) 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.project-shot {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  transition: transform 220ms ease;
+  width: 100%;
+}
+
+.project-card:hover .project-shot {
+  transform: scale(1.02);
+}
+
+.project-link {
+  align-items: center;
+  color: rgb(207 250 254);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 600;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.project-analysis {
+  border-left: 2px solid rgba(34, 211, 238, 0.58);
+  color: rgb(203 213 225);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.project-analysis-label {
+  color: rgb(207 250 254);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
 .manual-link {
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -667,6 +724,12 @@ option {
 
   .project-card h3 {
     font-size: 1.45rem;
+  }
+
+  .project-analysis {
+    font-size: 0.84rem;
+    line-height: 1.6;
+    padding-left: 0.8rem;
   }
 
   .manual-link {
