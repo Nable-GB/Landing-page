@@ -110,6 +110,40 @@ header {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.language-toggle {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.65rem;
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+}
+
+.language-toggle-compact {
+  display: flex;
+  justify-content: stretch;
+}
+
+.language-option {
+  border-radius: 0.45rem;
+  color: rgb(148 163 184);
+  font-size: 0.78rem;
+  font-weight: 800;
+  min-height: 2rem;
+  padding: 0.35rem 0.7rem;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.language-toggle-compact .language-option {
+  flex: 1;
+}
+
+.language-option-active {
+  background: linear-gradient(135deg, #22d3ee, #34d399);
+  color: #031019;
+}
+
 .primary-button,
 .secondary-button {
   align-items: center;
@@ -278,15 +312,28 @@ header {
 .project-card {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.75rem;
-  background: rgba(12, 17, 29, 0.78);
+  background:
+    linear-gradient(180deg, rgba(34, 211, 238, 0.045), rgba(139, 92, 246, 0.025)),
+    rgba(12, 17, 29, 0.78);
   padding: 1.5rem;
-  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+  position: relative;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.project-card::before {
+  background: linear-gradient(90deg, rgba(34, 211, 238, 0.7), rgba(52, 211, 153, 0.62), rgba(139, 92, 246, 0.58));
+  content: "";
+  height: 2px;
+  inset: 0 1rem auto;
+  opacity: 0.72;
+  position: absolute;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
   border-color: rgba(34, 211, 238, 0.35);
   background: rgba(15, 23, 42, 0.86);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34), 0 0 42px rgba(34, 211, 238, 0.08);
 }
 
 .project-card-featured {
@@ -297,6 +344,72 @@ header {
   padding: clamp(1.5rem, 3vw, 2rem);
 }
 
+.project-brand-row {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.project-brand {
+  align-items: center;
+  display: flex;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.project-logo-wrap {
+  align-items: center;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(34, 211, 238, 0.2), transparent 58%),
+    rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.28);
+  border-radius: 0.75rem;
+  color: #22d3ee;
+  display: flex;
+  height: 3.25rem;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0.42rem;
+  width: 3.25rem;
+}
+
+.project-logo {
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.project-brand-name {
+  color: #ffffff;
+  font-family: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.project-product-line {
+  color: rgb(148 163 184);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  margin-top: 0.22rem;
+}
+
+.project-tag {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.055);
+  color: rgb(226 232 240);
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  padding: 0.45rem 0.7rem;
+  text-transform: uppercase;
+}
+
 .project-shot-link {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.8rem;
@@ -304,6 +417,7 @@ header {
   margin-bottom: 1.25rem;
   overflow: hidden;
   position: relative;
+  transform: translateZ(0);
 }
 
 .project-shot-link::after {
@@ -318,22 +432,55 @@ header {
   aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
-  transition: transform 220ms ease;
+  transition: transform 260ms ease, filter 260ms ease;
   width: 100%;
 }
 
 .project-card:hover .project-shot {
   transform: scale(1.02);
+  filter: saturate(1.06);
+}
+
+.project-shot-badge {
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(5, 7, 13, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  bottom: 0.75rem;
+  color: rgb(207 250 254);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 700;
+  gap: 0.35rem;
+  left: 0.75rem;
+  max-width: calc(100% - 1.5rem);
+  overflow: hidden;
+  padding: 0.42rem 0.65rem;
+  position: absolute;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .project-link {
   align-items: center;
-  color: rgb(207 250 254);
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.98), rgba(52, 211, 153, 0.95));
+  border-radius: 0.58rem;
+  color: #031019;
   display: inline-flex;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 800;
   gap: 0.45rem;
   margin-top: 1rem;
+  min-height: 2.55rem;
+  padding: 0.72rem 0.9rem;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.project-link:hover {
+  box-shadow: 0 12px 32px rgba(34, 211, 238, 0.18);
+  transform: translateY(-2px);
 }
 
 .project-analysis {
